@@ -1,15 +1,21 @@
 #!/usr/bin/python3
-
-""" Look for the peak """
+""" Module 6-peak
+Function to find the peak number
+"""
 
 
 def find_peak(list_of_integers):
-    """ Find the peak """
-    if len(list_of_integers) == 0:
-        return None
+    """ Returns the peak number
+    Function to find the peak number
+    Args:
+        list_of_integers (list): The numners list.
+    """
+    li = list_of_integers
+    if li == []:
+        return (None)
+    if len(li) == 1:
+        return (li[0])
+    if li[0] > li[len(li) - 1]:
+        return (find_peak(li[:(len(li) + 1)//2]))
     else:
-        peak = list_of_integers[0]
-        for n in list_of_integers:
-            if n > peak:
-                peak = n
-        return peak
+        return (find_peak(li[(len(li))//2:]))
